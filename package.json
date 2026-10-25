@@ -1,0 +1,19 @@
+{
+  "name": "bracu-transport",
+  "private": true,
+  "workspaces": [
+    "Client",
+    "server",
+    "services"
+  ],
+  "scripts": {
+    "test": "npm test --workspace services && npm test --workspace server",
+    "build": "npm run build --workspace transport-client",
+    "build:vercel": "node scripts/build-vercel.mjs",
+    "migrate": "npm run migrate --workspace services",
+    "seed": "npm run seed --workspace server",
+    "dev": "npm run dev --workspace services",
+    "test:frontend": "npm test --workspace transport-client && npm run test:frontend --workspace server",
+    "local": "node scripts/start-local.cjs"
+  }
+}

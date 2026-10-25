@@ -1,0 +1,8 @@
+# Never upload local credentials, captured login links, databases or browser state.
+.env
+.env.*
+.local/
+.git/
+coverage/
+# Historical nested checkout/submodule is not part of this deployment.
+Bracu-Bus-Management-System/

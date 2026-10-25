@@ -1,0 +1,26 @@
+{
+  "name": "transport-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file-if-exists=../.env --watch src/index.js",
+    "start": "node --env-file-if-exists=../.env src/index.js",
+    "migrate": "node --env-file-if-exists=../.env src/utils/database.js migrate",
+    "seed": "node --env-file-if-exists=../.env src/utils/database.js seed",
+    "test": "node --test test/*.test.js",
+    "test:frontend": "node --test frontend-test/*.test.js",
+    "worker": "node --env-file-if-exists=../.env src/workers/index.js",
+    "queue:failed": "node --env-file-if-exists=../.env src/queue/inspectFailed.js"
+  },
+  "dependencies": {
+    "bullmq": "^6.3.19",
+    "express": "^4.21.2",
+    "ioredis": "^6.0.0",
+    "pg": "^8.13.3"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.10",
+    "jsdom": "^30.1.3",
+    "supertest": "^7.0.0"
+  }
+}

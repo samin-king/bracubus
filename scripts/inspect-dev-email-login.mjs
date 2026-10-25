@@ -1,0 +1,10 @@
+import dotenv from 'dotenv';
+import { readFile } from 'node:fs/promises';
+import { localEmailLoginEnabled, DEV_STUDENT_EMAIL } from '../services/src/config/devEmailLogin.js';
+import { devEmailFile } from '../services/src/services/emailSender.js';
+dotenv.config({ path: new URL('../.env', import.meta.url) });
+if (!localEmailLoginEnabled(process.env)) throw new Error('Local email inspection requires explicit development mode and DEV_EMAIL_LOGIN=true');
+const message = JSON.parse(await readFile(devEmailFile, 'utf8'));
+if (message.email !== DEV_STUDENT_EMAIL || Date.parse(message.expiresAt) <= Date.now()) throw new Error('No current development link; request login again');
+console.log('LOCAL DEVELOPMENT ONLY — one-time test-student verification link:');
+console.log(message.url);

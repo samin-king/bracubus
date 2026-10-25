@@ -1,0 +1,48 @@
+@import "tailwindcss";
+body { margin: 0; font-family: system-ui, sans-serif; background: #f1f5f9; color: #0f172a; }
+button:focus-visible, a:focus-visible { outline: 3px solid #0284c7; outline-offset: 4px; }
+
+/* Scoped to the authentication page; other application screens retain their styles. */
+.auth-page {
+  --auth-accent: #7c2338;
+  --auth-ink: #182230;
+  --auth-muted: #586273;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #f7f8fa;
+  color: var(--auth-ink);
+}
+.auth-layout { width: 100%; max-width: 440px; text-align: center; }
+.auth-brand { margin-bottom: 28px; }
+.auth-logo { display: block; width: 140px; height: auto; max-width: 100%; margin: 0 auto 24px; }
+.auth-university { margin: 0 0 20px; font-size: 26px; font-weight: 650; }
+.auth-brand h1 { margin: 0; font-size: clamp(18px, 4.8vw, 22px); font-weight: 750; letter-spacing: .06em; line-height: 1.4; }
+.auth-subtitle { margin: 7px 0 0; color: var(--auth-muted); font-size: 14px; }
+.auth-card { background: white; border: 1px solid #e2e5ea; border-top: 3px solid var(--auth-accent); border-radius: 14px; padding: 32px; box-shadow: 0 8px 28px rgb(24 34 48 / 5%); }
+.auth-card h2 { margin: 0; font-size: 24px; font-weight: 650; line-height: 1.35; letter-spacing: -.025em; }
+.auth-description { margin: 16px 0 26px; color: var(--auth-muted); font-size: 15px; line-height: 1.65; }
+.auth-email-form { display: grid; gap: 12px; margin-bottom: 12px; text-align: left; }
+.auth-email-form label { color: var(--auth-ink); font-size: 14px; font-weight: 600; }
+.auth-email-form input { box-sizing: border-box; width: 100%; min-width: 0; min-height: 50px; padding: 12px 14px; border: 1px solid #ccd1da; border-radius: 8px; background: white; color: var(--auth-ink); font: inherit; font-size: 14px; }
+.auth-email-form input:focus-visible, .auth-email-button:focus-visible { outline: 2px solid var(--auth-accent); outline-offset: 3px; }
+.auth-email-button { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var(--auth-accent); border-radius: 8px; background: var(--auth-accent); color: white; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+.auth-email-button:hover:not(:disabled) { filter: brightness(.9); }
+.auth-email-button:disabled { opacity: .65; cursor: wait; }
+.auth-page button:focus-visible { outline: 3px solid var(--auth-accent); outline-offset: 4px; }
+.auth-note { margin: 22px 0 0; color: var(--auth-muted); font-size: 12px; line-height: 1.8; }
+.auth-note span { font-weight: 600; }
+.auth-error { margin: 0 0 20px; padding: 12px; border: 1px solid #e9cbd2; border-radius: 8px; background: #fff5f6; color: var(--auth-accent); font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; text-align: left; }
+.auth-status { margin: 16px 0; color: var(--auth-muted); font-size: 14px; }
+.auth-retry { margin-top: 16px; padding: 8px; border: 0; background: transparent; color: var(--auth-accent); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.auth-footer { margin-top: 28px; color: var(--auth-muted); font-size: 12px; line-height: 1.8; }
+.auth-footer p { margin: 0; }
+@media (max-width: 380px) {
+  .auth-page { padding: 28px 16px; }
+  .auth-card { padding: 26px 18px; }
+  .auth-card h2 { font-size: 22px; }
+  .auth-logo { width: 120px; }
+}

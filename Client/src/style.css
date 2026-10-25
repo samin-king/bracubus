@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+ --color-blue-800: #7c263e;
+ --color-blue-900: #57182b;
+}
+
+@layer base {
+ body {
+  @apply m-0 text-slate-900;
+  min-height: 100vh;
+  background: #f7f7fa;
+ }
+ input, select, textarea {
+  @apply w-full rounded border border-blue-200 bg-white p-2;
+ }
+ input:focus, select:focus, textarea:focus {
+  outline: 2px solid #a36880;
+  outline-offset: 2px;
+ }
+ button {
+  @apply rounded px-4 py-2 font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600;
+  transition: background-color 150ms ease, box-shadow 150ms ease;
+ }
+ button:enabled { cursor: pointer; }
+ button:disabled { cursor: not-allowed; }
+ h1 { color: #57182b; }
+}
+
+.app-header {
+ background: #fff;
+ border-bottom: 1px solid #e9dfe6;
+ box-shadow: 0 3px 16px #7c263e08;
+}
+.app-navigation button { border-radius: 0.65rem; }
+main article, main form, main section.border {
+ border-color: #e9dfe6;
+ box-shadow: 0 4px 18px #7c263e06;
+}

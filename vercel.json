@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build:vercel",
+  "outputDirectory": "Client/dist",
+  "functions": {
+    "api/index.mjs": {
+      "maxDuration": 60,
+      "excludeFiles": "{.env,.env.*,**/.env,**/.env.*,.local/**,.git/**,**/test/**,**/node_modules/@electric-sql/**}"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/index" },
+    { "source": "/((?!api(?:/|$)).*)", "destination": "/index.html" }
+  ]
+}
